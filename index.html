@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/537671e99c.js" crossorigin="anonymous"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        #wrap{
+            margin: 0 auto;
+        }
+        header{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100px;
+            z-index: 10;
+            width: 100%;
+        }
+        #logo{
+            width: 24% ;
+            float: left;
+        }
+        #logo>img{
+            max-width: 30%;
+        }
+        #head-box{
+            width: 75%;
+            float: right;
+        }
+        #login>ul{
+            float: right;
+        }
+        #login>ul>li{
+            display: inline-block;
+            padding: 15px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #head-list{
+            width: 100%;
+            clear: both;
+        }
+        #head-list>ul{
+            float: right;
+        }
+        #head-list>ul>li{
+            display: inline-block;
+            padding: 20px;
+            margin-right: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }section{
+            width: 100%;
+            position: relative;
+        }
+        section>ul{
+            display: flex;
+            overflow: hidden;
+        }
+        footer>div{position: absolute;
+            left: 5%;
+            top: 90%;
+        }
+        footer>div>ul>li{
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+            color: white;
+            font-size:20px;
+            text-align: center;
+        }
+        #main-text{
+            color: white;
+            font-size: 30px;
+            left: 78%;
+            top: 80%
+        }
+        #icon-left{
+            position: absolute;
+            left: 5%;
+            top: 45%;
+            z-index: 20;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        #icon-right{
+            position: absolute;
+            right: 5%;
+            top: 45%;
+            z-index: 20;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+        <div id="logo">
+            <img src="./images/kialogo.webp">
+        </div>
+        <div id="head-box">
+            <div id="login">
+                <ul>
+                    <li>통합검색</li>
+                    <li>로그인</li>
+                </ul>
+            </div>
+            <div id="head-list">
+                <ul>
+                    <li>차량</li>
+                    <li>구매</li>
+                    <li>고객지원</li>
+                    <li>시승체험</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <ul id="imgSlider">
+            <li><img src="./images/k5.jpg"></li>
+            <li><img src="./images/ev6.jpg"></li>
+            <li><img src="./images/k8.jpg"></li>
+        </ul>
+       
+    </section>
+    <footer>
+        <div>
+            <ul>
+                <li>제원</li>
+                <li>가격</li>
+                <li>카탈로그</li>
+                <li>모델 비교</li>
+            </ul>
+        </div>
+        <div id="main-text">
+            <h1>2023<br> THE NEW K5</h1>
+        </div>
+    </footer>
+  </div>
+  <div id="icon-right"><i class="fa-solid fa-chevron-right"></i></i></div>
+  <div id="icon-left"><i class="fa-solid fa-chevron-left"></i></i></div>
+  <script>
+    var imgSlider = document.querySelectorAll('#imgSlider img');
+       var left = document.querySelector('#icon-left');
+       var right = document.querySelector('#icon-right');
+       var num = 0;
+
+       imgshow();
+
+       function imgshow(){
+        for(let i=0;i<imgSlider.length;i++){
+            imgSlider[i].style.display='none';
+        }
+        imgSlider[num].style.display='block';
+       }
+
+       left.onclick=function(){
+        if(num<=0){num=2}
+        else(num -= 1)
+        imgshow();
+       }
+       right.onclick=function(){
+        if(num>=2){num=0}
+        else(num += 1)
+        imgshow();
+       }
+  </script>
+</body>
+</html>
